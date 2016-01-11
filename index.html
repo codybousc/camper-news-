@@ -9,7 +9,24 @@
 
 </head>
   <body>
-    {{words}}
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Poster's Name</th>
+          <th>Photo</th>
+          <th>Ratings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="(key, value) in StoriesResponse">
+          <td>{{value.author.username}}</td>
+           <td>{{value.author.picture}}</td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+
   <script src="bower_components/angular/angular.js"></script>
   <script src="controllers/CamperNewsController.js" type="text/javascript"></script>
 </body>
