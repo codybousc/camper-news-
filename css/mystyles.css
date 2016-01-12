@@ -1,0 +1,15 @@
+.container {
+}
+
+.postersPhoto {
+  height: 250px;
+  width: 250px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+}
+
+.allCamperPosts {
+   float: left;
+   margin: .35%;
+}

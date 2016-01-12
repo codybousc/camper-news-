@@ -6,26 +6,17 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/mystyles.css" type="text/css">
 <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-
 </head>
   <body>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Poster's Name</th>
-          <th>Photo</th>
-          <th>Ratings</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="(key, value) in StoriesResponse">
-          <td>{{value.author.username}}</td>
-           <td>{{value.author.picture}}</td>
-       </tr>
-      </tbody>
-    </table>
-  </div>
+
+<div class="container">
+  <div ng-repeat="(key, value) in allData" class=" allCamperPosts outerContainer">
+    <div ng-style="{'background-image': 'url({{value.author.picture}})'}" class="postersPhoto">
+      {{value.author.username}}
+    </div>
+ </div>
+</div>
+
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="controllers/CamperNewsController.js" type="text/javascript"></script>
