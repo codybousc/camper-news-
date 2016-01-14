@@ -15,7 +15,7 @@
       <a href="http://www.freecodecamp.com/{{value.author.username}}"> <span class="userName">{{value.author.username}}</span></a>
     </div>
     <div class="detailsSpace">
-      <a href="{{value.link}}"> {{value.headline}} </a><br><br>
+      <a href="{{value.link}}"> {{value.headline | limitTo: 65}} </a><br><br>
       <img src="css/images/smallerThumbsUp.png" alt="thumbs up" class="thuminIt"> {{value.upVotes.length}}
     </div>
  </div>
