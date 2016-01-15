@@ -11,43 +11,18 @@
 
 <div class="container">
   <div ng-repeat="(key, value) in allData" class=" allCamperPosts">
-    <div data-toggle="modal" data-target="#myModalContent.html" ng-style="{'background-image': 'url({{value.author.picture}})'}" class="postersPhoto" ng-click="open()">
+    <div data-toggle="modal" data-target="#myModalContent"
+    ng-style="{'background-image': 'url({{value.author.picture}})'}"
+    class="postersPhoto" ng-click="findPostById(value.id); open();">
       <a href="http://www.freecodecamp.com/{{value.author.username}}"> <span class="userName">{{value.author.username}}</span></a>
     </div>
     <div class="detailsSpace">
       <a href="{{value.link}}"> {{value.headline | limitTo: 65}} </a><br><br>
       <img src="css/images/smallerThumbsUp.png" alt="thumbs up" class="thuminIt"> {{value.upVotes.length}}
-      <button type="button" class="btn btn-default" ng-click="open(); findPostById(value.id)">Open me!</button>
+      <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModalContent.html" ng-click="open(lg, value.id); findPostById(value.id)">Open me!</button>
     </div>
  </div>
 </div>
-
-<div ng-controller="CamperNewsController">
-    <script type="text/ng-template" id="myModalContent.html">
-        <div class="modal-header">
-            <h3 class="modal-title">I am a modal!</h3>
-        </div>
-        <div class="modal-body">
-            <ul>
-                <li ng-repeat="item in items">
-                    <a href="#" ng-click="$event.preventDefault(); selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ selected.item }}</b>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
-        </div>
-    </script>
-
-    <button type="button" class="btn btn-default" ng-click="open(); findPostById(postId)">Open me!</button>
-    <button type="button" class="btn btn-default" ng-click="open('lg')">Large modal</button>
-    <button type="button" class="btn btn-default" ng-click="open('sm')">Small modal</button>
-    <button type="button" class="btn btn-default" ng-click="toggleAnimation()">Toggle Animation ({{ animationsEnabled }})</button>
-    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
-</div>
-
 
 
   <script src="bower_components/angular/angular.js"></script>
